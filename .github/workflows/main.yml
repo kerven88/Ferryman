@@ -7,22 +7,22 @@ on:
     # 忽略指定文件
     paths-ignore:
     - 'README.md'
-  schedule:
-    # Minimum interval 5 minutes
-    - cron:  '0 */6 * * *'
+#   schedule:
+#     # Minimum interval 5 minutes
+#     - cron:  '0 */6 * * *'
     
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
 
     - name: Setup docker
       uses: docker-practice/actions-setup-docker@master
-      with:
-        docker_version: '19.03'
+#       with:
+#         docker_version: '19.03'
 
     - name: Docker version
       run: |
@@ -39,7 +39,7 @@ jobs:
         echo "current time: $(date +%Y-%m-%d\ %H:%M:%S)"
 
     - name: Set up Python 3.7
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.7'
 
